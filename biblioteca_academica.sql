@@ -307,6 +307,16 @@ SELECT professor.nome AS Professor,
 FROM professor INNER JOIN curso ON professor.mat_siap = curso.professor_mat_siap
 ORDER BY Curso ASC;   
 
+#pesquisa sobre as reservas de livros.
+CREATE VIEW vw_listar06 AS
+SELECT livro.titulo AS Título,
+	   livro.dia_emprestimo AS Dia_saida,
+       livro.dia_entrega AS Dia_entrega,
+       livro.ISBN AS ISBN,
+       aluno.nome AS Aluno,
+       professor.nome AS Professor
+       ;
+
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
