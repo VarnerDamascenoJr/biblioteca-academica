@@ -291,7 +291,14 @@ CREATE TABLE IF NOT EXISTS `biblioteca`.`professor_has_livro` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-       
+#--------------AQUI FICARAO TODAS AS VISOES PARA FACILITAR NO EMPREGO DAS PESQUISAS
+#listar livros por categoria, editora e ano de publicao
+CREATE VIEW vw_listar01 AS
+SELECT livro.titulo AS Título,
+       categoria.nome_categoria AS Categoria,
+       livro.editora AS Editora,
+       livro.anoLancamento AS Ano_publicacao
+FROM livro INNER JOIN categoria ON livro.categoria_idcategoria = categoria.idcategoria;
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
