@@ -300,6 +300,13 @@ SELECT livro.titulo AS Título,
        livro.anoLancamento AS Ano_publicacao
 FROM livro INNER JOIN categoria ON livro.categoria_idcategoria = categoria.idcategoria;
 
+#LISTAR PROFESSORES POR CURSO
+CREATE VIEW vw_listar04 AS
+SELECT professor.nome AS Professor,
+       curso.nomeCurso AS Curso
+FROM professor INNER JOIN curso ON professor.mat_siap = curso.professor_mat_siap
+ORDER BY Curso ASC;   
+
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
