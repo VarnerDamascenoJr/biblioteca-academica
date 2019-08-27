@@ -18,7 +18,7 @@ USE `mydb` ;
 -- Table `mydb`.`categoria`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`categoria` (
-  `idcategoria` INT NOT NULL,
+  `idcategoria` INT NOT NULL AUTO_INCREMENT,
   `nome_categoria` VARCHAR(20) NULL,
   `descricao` VARCHAR(80) NULL,
   PRIMARY KEY (`idcategoria`))
@@ -29,7 +29,7 @@ ENGINE = InnoDB;
 -- Table `mydb`.`livro`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`livro` (
-  `ISBN` INT NOT NULL,
+  `ISBN` INT NOT NULL auto_increment,
   `titulo` VARCHAR(30) NULL,
   `anoLancamento` DATE NOT NULL,
   `autor` VARCHAR(20) NULL,
@@ -67,7 +67,7 @@ ENGINE = InnoDB;
 -- Table `mydb`.`curso`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`curso` (
-  `cod_Curso` INT NOT NULL,
+  `cod_Curso` INT NOT NULL AUTO_INCREMENT,
   `nomeCurso` VARCHAR(45) NULL,
   PRIMARY KEY (`cod_Curso`),
   UNIQUE INDEX `cod_Curso_UNIQUE` (`cod_Curso` ASC))
@@ -78,7 +78,7 @@ ENGINE = InnoDB;
 -- Table `mydb`.`aluno`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`aluno` (
-  `matricula` INT NOT NULL,
+  `matricula` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(20) NULL,
   `endereco` VARCHAR(15) NULL,
   `id_Curso` VARCHAR(45) NULL,
@@ -113,7 +113,7 @@ ENGINE = InnoDB;
 -- Table `mydb`.`tipo_usuario`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`tipo_usuario` (
-  `idtipo_usuario` INT NOT NULL,
+  `idtipo_usuario` INT NOT NULL AUTO_INCREMENT,
   `usuario` INT NULL,
   `aluno_matricula` INT NOT NULL,
   `aluno_curso_cod_Curso` INT NOT NULL,
@@ -139,7 +139,7 @@ ENGINE = InnoDB;
 -- Table `mydb`.`professor`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`professor` (
-  `mat_siap` INT NOT NULL,
+  `mat_siap` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(45) NULL,
   `endereco` VARCHAR(15) NULL,
   `cod_Curso` INT NULL,
@@ -200,7 +200,7 @@ ENGINE = InnoDB;
 -- Table `mydb`.`regime_de_trabalho`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`regime_de_trabalho` (
-  `idregime_de_trabalho` INT NOT NULL,
+  `idregime_de_trabalho` INT NOT NULL AUTO_INCREMENT,
   `regime_de_trabalho` VARCHAR(4) NULL,
   `professor_mat_siap` INT NOT NULL,
   `funcionario_matricula` INT NOT NULL,
@@ -224,7 +224,7 @@ ENGINE = InnoDB;
 -- Table `mydb`.`autor_has_livro`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`autor_has_livro` (
-  `autor_idautor` INT NOT NULL,
+  `autor_idautor` INT NOT NULL AUTO_INCREMENT,
   `livro_ISBN` INT NOT NULL,
   `livro_categoria_idcategoria` INT NOT NULL,
   PRIMARY KEY (`autor_idautor`, `livro_ISBN`, `livro_categoria_idcategoria`),
@@ -247,7 +247,7 @@ ENGINE = InnoDB;
 -- Table `mydb`.`professor_has_livro`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`professor_has_livro` (
-  `professor_mat_siap` INT NOT NULL,
+  `professor_mat_siap` INT NOT NULL AUTO_INCREMENT,
   `professor_curso_cod_Curso` INT NOT NULL,
   `professor_tipo_usuario_idtipo_usuario` INT NOT NULL,
   `livro_ISBN` INT NOT NULL,
@@ -272,7 +272,7 @@ ENGINE = InnoDB;
 -- Table `mydb`.`aluno_has_livro`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`aluno_has_livro` (
-  `aluno_matricula` INT NOT NULL,
+  `aluno_matricula` INT NOT NULL AUTO_INCREMENT,
   `aluno_curso_cod_Curso` INT NOT NULL,
   `livro_ISBN` INT NOT NULL,
   `livro_categoria_idcategoria` INT NOT NULL,
