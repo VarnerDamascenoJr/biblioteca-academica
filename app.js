@@ -14,7 +14,7 @@ const mysql = require('mysql')
     app.use(bodyParser.json())
     //HANDLEBARS
 
-    app.engine('handlebars',     handlebars({defaultLayout: 'main'}))
+    app.engine('handlebars', handlebars({defaultLayout: 'main'}))
     app.set('view engine', 'handlebars')
 
     //DATABASE -> MYSQL
