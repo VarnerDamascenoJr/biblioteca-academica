@@ -25,10 +25,6 @@ const mysql = require('mysql')
         database:'biblioteca'
     })
 
-    
-
-
-    
    /*     con.connect((err)=>{
             if(err) throw err;
             console.log("Connected to DataBase.")})
