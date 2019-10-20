@@ -37,6 +37,10 @@ rota.get('/professor/add', (req, res)=>{
     res.render('./admin/professor/professoradd')
 })
 
+rota.get('/', (req, res)=>{
+    res.render('./admin/professoredit')
+})
+
 
 
 
