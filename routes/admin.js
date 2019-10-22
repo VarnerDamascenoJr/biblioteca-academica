@@ -68,6 +68,17 @@ rota.get('/', (req, res)=>{
     res.render('./admin/professoredit')
 })
 
+//rotas para aluno.
+rota.post('', (req, res) => {
+       var erros = []
+
+if(!req.body.ISBN || typeof req.body.ISBN == null || req.body.ISBN == undefined){ erros.push({texto: 'Corrija o campo para ISBN.'})}
+if(!req.body.titulo || typeof req.body.titulo == null || req.body.titulo == undefined) { erros.push({texto: 'Corrija o campo de título.'})}
+if(!req.body.autor || typeof req.body.autor == null || req.body.autor == undefined){ erros.push({texto: 'Corrija o campo do nome do autor.'})}
+if(data_Entrada < data_Saida){ erros.push({texto: 'Digite a data corretamente.'})}
+if(erros.length > 0){res.render('./path')}
+})
+else{}
 
 
 
