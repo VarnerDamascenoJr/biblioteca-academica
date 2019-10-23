@@ -68,9 +68,17 @@ rota.get('/', (req, res)=>{
     res.render('./admin/professoredit')
 })
 
-//rotas para aluno.
-rota.post('', (req, res) => {
-       var erros = []
+//rotas para livro.
+rota.post('/livro', (req, res) => {
+
+
+}
+rota.get('/livro/add', (req, res) => {
+    res.render('./admin/livroadd')
+})
+
+rota.post('/livro/novo', (req, res) => {
+           var erros = []
 
 if(!req.body.ISBN || typeof req.body.ISBN == null || req.body.ISBN == undefined){ erros.push({texto: 'Corrija o campo para ISBN.'})}
 if(!req.body.titulo || typeof req.body.titulo == null || req.body.titulo == undefined) { erros.push({texto: 'Corrija o campo de título.'})}
@@ -78,9 +86,22 @@ if(!req.body.autor || typeof req.body.autor == null || req.body.autor == undefin
 if(data_Entrada < data_Saida){ erros.push({texto: 'Digite a data corretamente.'})}
 if(erros.length > 0){res.render('./path')}
 })
-else{}
+else{
+//aqui para cadastrar novo livro
+}
+})
 
+// rotas para funcionario
+rota.get('/funcionario', (req, res) => {
+    res.render('./admin/funcionario')
+})
 
+rota.get('/funcionario/add', (req, res) => {
+    res.render('./admin/funcionario/funcionarioadd')
+})
 
+rota.post('/funcionario/novo', (req, res) => {
+    //campo para adicionar novo funcionario.
+})
 
 module.exports = rota
