@@ -101,7 +101,15 @@ rota.get('/funcionario/add', (req, res) => {
 })
 
 rota.post('/funcionario/novo', (req, res) => {
-    //campo para adicionar novo funcionario.
+   var erros = []
+if(!req.body.matricula || typeof req.body.matricula == null || req.body.matricula == undefined){ erros.push({texto:'Corrija o campo da matrícula.'})}
+if(!req.body.nome      || typeof req.body.nome      == null || req.body.nome      == undefined){ erros.push({texto:'Corrija o campo do nome.'})}
+if(!req.body.endereco  || typeof req.body.endereco  == null || req.body.endereco  == undefined){ erros.push({texto:'Corrija o campo de endereço.'})}
+if(!req.body.cargaHora || typeof req.body.cargaHora == null || req.body.cargaHora == undefined){ erros.push({texto:'Corrija o campo de carga horária.'})}
+if(erros.length > 0){ res.render('')}
+else{
+   
+}
 })
 
 module.exports = rota
