@@ -74,7 +74,7 @@ rota.post('/livro', (req, res) => {
 
 })
 rota.get('/livro/add', (req, res) => {
-    res.render('./admin/livroadd')
+    res.render('./admin/livro/livroadd')
 })
 
 rota.post('/livro/novo', (req, res) => {
