@@ -287,6 +287,7 @@ SELECT professor.nome AS Professor,
 FROM professor INNER JOIN curso ON professor.curso_cod_Curso = curso.cod_Curso
 ORDER BY Curso ASC;
 
+
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
