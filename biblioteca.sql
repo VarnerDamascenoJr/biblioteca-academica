@@ -266,6 +266,26 @@ CREATE TABLE IF NOT EXISTS `biblioteca`.`professor_has_livro` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
+---------------------ESPAÇO PARA A CRIAÇÃO DE VIEWS----------------------------------------
+
+CREATE VIEW vw_listar01 AS
+SELECT livro.titulo AS Título,
+       categoria.nome_categoria AS Categoria,
+       livro.editora AS Editora,
+       livro.anoLancamento AS Ano_publicacao
+FROM livro INNER JOIN categoria ON livro.categoria_idcategoria = categoria.idcategoria;
+
+CREATE VIEW vw_listar05 AS
+SELECT livro.titulo AS Título,
+	   livro.editora AS Editora,
+       categoria.nome_categoria AS Categoria
+FROM livro INNER JOIN categoria ON livro.categoria_idcategoria = categoria.idcategoria; 
+
+CREATE VIEW vw_listar04 AS
+SELECT professor.nome AS Professor,
+       curso.nomeCurso AS Curso
+FROM professor INNER JOIN curso ON professor.curso_cod_Curso = curso.cod_Curso
+ORDER BY Curso ASC;
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
