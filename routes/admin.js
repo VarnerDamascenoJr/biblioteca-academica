@@ -72,7 +72,7 @@ rota.get('/', (req, res)=>{
 rota.post('/livro', (req, res) => {
 
 
-}
+})
 rota.get('/livro/add', (req, res) => {
     res.render('./admin/livroadd')
 })
@@ -85,7 +85,7 @@ if(!req.body.titulo || typeof req.body.titulo == null || req.body.titulo == unde
 if(!req.body.autor || typeof req.body.autor == null || req.body.autor == undefined){ erros.push({texto: 'Corrija o campo do nome do autor.'})}
 if(data_Entrada < data_Saida){ erros.push({texto: 'Digite a data corretamente.'})}
 if(erros.length > 0){res.render('./path')}
-})
+
 else{
 //aqui para cadastrar novo livro
 }
