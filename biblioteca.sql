@@ -288,6 +288,34 @@ FROM professor INNER JOIN curso ON professor.curso_cod_Curso = curso.cod_Curso
 ORDER BY Curso ASC;
 
 
+----------------- CRIAÇÃO DAS TRIGGERS PARA O USO INTERNO ----------------------------
+DELIMITER ??
+CREATE TRIGGER tr_gatilho01 BEFORE INSERT ON aluno
+FOR EACH ROW SET 
+    BEGIN
+        IF data_Saida < dat_Entrada THEN
+            RETURN erro = console.log('Data de sainda menor que a data de entrada. Conserte o erro.')
+        END IF;
+    END??
+DELIMITER ;    
+
+DELIMITER ??
+CREATE TRIGGER tr_gatilho02 BEFORE INSERT ON professor
+FOR EACH ROW SET
+    BEGIN
+        IF cargaHora == 20 THEN 
+            SET salario = cargaHora*25;
+        IF cargaHora == 40 THEN
+            SET salario = cargaHora*35;
+        IF cargaHora == 60 THEN 
+            SET salario = cargaHora*40;
+        END IF;
+    END??
+DELIMITER ;                     
+
+  
+
+
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
